@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEDAŞ 21. Bölge Müdürlüğü | Gis</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@2.0.0-alpha/dist/leaflet.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "leaflet": "https://unpkg.com/leaflet@2.0.0-alpha/dist/leaflet.js"
+            }
+        }
+    </script>
+    <style>
+        #map {position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script type="module">
+        import L, {Map, TileLayer, Marker, Circle, Polygon, Popup, Control} from 'leaflet';
+
+        const map = new Map('map', {
+            zoomControl: false
+        }).setView([41.3442, 36.2494], 8);
+
+        const tiles = new TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        const zoom = new Control.Zoom({
+            position: 'topleft',
+            zoomInTitle: 'Yaklaş',
+            zoomOutTitle: 'Uzaklaş'
+        }).addTo(map);
+
+        const scale = new Control.Scale({
+            position: 'topright',
+            metric: true,
+            imperial: false
+        }).addTo(map);
+    </script>
+</body>
+</html>
