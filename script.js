@@ -11,12 +11,12 @@ import L, {Map, TileLayer, Marker, Circle, Polygon, Popup, Control} from 'leafle
 
         const zoom = new Control.Zoom({
             position: 'topleft',
-            zoomInTitle: 'Yaklaş',
+            zoomInTitle: 'Yakınlaş',
             zoomOutTitle: 'Uzaklaş'
         }).addTo(map);
 
         const scale = new Control.Scale({
-            position: 'topright',
+            position: 'bottomleft',
             metric: true,
             imperial: false
         }).addTo(map);
