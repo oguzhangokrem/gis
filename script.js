@@ -21,7 +21,7 @@ import L, {Map, TileLayer, Marker, Circle, Polygon, Popup, Control, DomUtil} fro
             imperial: false
         }).addTo(map);
 
-        const watermark = new Control.extend({
+        const watermark = new Control.Extend({
                 onAdd:function(map){},
                         var img = DomUtil.create('img');
                         img.src = 'flag.svg';
