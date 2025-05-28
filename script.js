@@ -1,13 +1,29 @@
 import L, {Map, TileLayer, Marker, Circle, Polygon, Popup, Control} from 'leaflet';
 
-        const map = new Map('map', {
-            zoomControl: false
-        }).setView([41.3442, 36.2494], 8);
-
-        const tiles = new TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        const osm = new TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
+        });
+
+        const googleHybrid = new TileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
+            maxZoom: 20,
+            subdomains:['mt0', 'mt1', 'mt2', 'mt3']
+        });
+
+        const map = new Map('map', {
+            zoomControl: false,
+            layers: [osm]
+        }).fitWorld();
+
+        map.locate({setView: true});
+
+
+        const baseMaps = {
+            "OpenStreetMap": osm,
+            "Google Hybrid": googleHybrid
+        };
+
+        const layerControl = new Control.Layers(baseMaps).addTo(map);
 
         const zoom = new Control.Zoom({
             position: 'topleft',
