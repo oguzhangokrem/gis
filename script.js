@@ -20,19 +20,3 @@ import L, {Map, TileLayer, Marker, Circle, Polygon, Popup, Control, DomUtil} fro
             metric: true,
             imperial: false
         }).addTo(map);
-
-        const watermark = new Control.Extend({
-                onAdd:function(map){},
-                        var img = DomUtil.create('img');
-                        img.src = 'flag.svg';
-                        img.style.width = '200px';
-                        return img;
-                },
-                onRemove:function(map){},
-        });
-        
-        Control.Watermark = function(opts){
-                return new Control.Watermark(opts);
-        }
-
-        Control.Watermark().addTo(map);
