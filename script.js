@@ -1,4 +1,4 @@
-import L, {Map, TileLayer, Marker, Circle, Polygon, Popup, Control} from 'leaflet';
+import L, {Map, TileLayer, Marker, Circle, Polygon, Popup, Control, DomUtil} from 'leaflet';
 
         const map = new Map('map', {
             zoomControl: false
@@ -20,3 +20,19 @@ import L, {Map, TileLayer, Marker, Circle, Polygon, Popup, Control} from 'leafle
             metric: true,
             imperial: false
         }).addTo(map);
+
+        const watermark = new Control.extend({
+                onAdd:function(map){},
+                        var img = DomUtil.create('img');
+                        img.src = 'flag.svg';
+                        img.style.width = '200px';
+                        return img;
+                },
+                onRemove:function(map){},
+        });
+        
+        Control.Watermark = function(opts){
+                return new Control.Watermark(opts);
+        }
+
+        Control.Watermark().addTo(map);
