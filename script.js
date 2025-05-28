@@ -1,4 +1,4 @@
-import L, {Map, TileLayer, Marker, Circle, Polygon, Popup, Control, DomUtil} from 'leaflet';
+import L, {Map, TileLayer, Marker, Circle, Polygon, Popup, Control} from 'leaflet';
 
         const map = new Map('map', {
             zoomControl: false
