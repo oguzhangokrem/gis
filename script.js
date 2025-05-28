@@ -11,12 +11,11 @@ import L, {Map, TileLayer, Marker, Circle, Polygon, Popup, Control} from 'leafle
         });
 
         const map = new Map('map', {
+            center: [41.3442, 36.2498],
+            zoom: 16,
             zoomControl: false,
             layers: [osm]
-        }).fitWorld();
-
-        map.locate({setView: true});
-
+        });
 
         const baseMaps = {
             "OpenStreetMap": osm,
